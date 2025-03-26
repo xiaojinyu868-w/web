@@ -4,6 +4,7 @@ const components = {
     'hero': 'components/hero.html',
     'story': 'components/story.html',
     'values': 'components/values.html',
+    'features': 'components/features.html',
     'business': 'components/business.html',
     'progress': 'components/progress.html',
     'endorsement': 'components/endorsement.html',
