@@ -6,354 +6,36 @@
     <title>智能错题管理系统 - 教育科技创业项目</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .highlight {
-            color: #fbbf24;
-            font-weight: bold;
-        }
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .story-box {
-            border-left: 4px solid #fbbf24;
-            background-color: #fffbeb;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="bg-gray-50">
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold text-gray-800">智能错题管理系统</span>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar"></div>
 
     <!-- 主横幅 -->
-    <section class="gradient-bg text-white pt-32 pb-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in">
-                学生都在用的<span class="highlight">错题管理系统</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 fade-in">
-                北师大背书 + 清华技术：已获数万用户好评
-            </p>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12">
-                <div class="stat-card p-4 rounded-lg">
-                    <div class="text-3xl font-bold">5万+</div>
-                    <div class="text-sm">现有用户</div>
-                </div>
-                <div class="stat-card p-4 rounded-lg">
-                    <div class="text-3xl font-bold">300+</div>
-                    <div class="text-sm">合作学校</div>
-                </div>
-                <div class="stat-card p-4 rounded-lg">
-                    <div class="text-3xl font-bold">75%</div>
-                    <div class="text-sm">续费率</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="hero"></div>
 
     <!-- 产品故事 -->
-    <section class="py-16 px-4 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">为什么学生离不开我们？</h2>
-            <div class="story-box p-6 mb-10 rounded-lg">
-                <h3 class="text-xl font-bold mb-4">中学生小王的故事</h3>
-                <p class="text-lg leading-relaxed">
-                    小王每天晚上都要花<span class="font-bold text-red-600">30分钟</span>整理错题，手抄题目、答案，非常烦恼。
-                    父母发现他经常做重复的错题，成绩始终提不高。老师无法跟踪他的薄弱点。
-                </p>
-                <p class="text-lg leading-relaxed mt-4">
-                    使用我们的系统后，小王只需<span class="font-bold text-green-600">记下题号</span>，系统自动生成错题本，
-                    节省了大量时间。父母和老师可以清晰看到他的弱点，针对性辅导，成绩提高了15分！
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4 text-blue-800">学生只需做这些</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 text-xl">1.</span>
-                            <span>把做错的题号记下来</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 text-xl">2.</span>
-                            <span>自己上传或交给家长、课代表上传</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 text-xl">3.</span>
-                            <span>打开网站浏览个性化错题本</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-green-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4 text-green-800">系统自动完成</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 text-xl">1.</span>
-                            <span>智能录入作业本和试卷题目</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 text-xl">2.</span>
-                            <span>生成高级错题本(带日期、难度、章节)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 text-xl">3.</span>
-                            <span>统计各章节掌握程度(专利申请中)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 text-xl">4.</span>
-                            <span>分析做题数据，给出学习建议</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="story"></div>
 
     <!-- 核心价值 -->
-    <section class="py-16 px-4 bg-gray-100">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">解决真实痛点</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-red-500">
-                    <div class="flex items-center justify-center mb-4">
-                        <span class="text-5xl text-red-500">30</span>
-                        <span class="text-2xl ml-2">分钟/天</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-2">节省整理时间</h3>
-                    <p class="text-center text-gray-600">
-                        告别手工抄写错题<br>解放学生课后时间
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
-                    <div class="text-center text-5xl text-blue-500 mb-4">
-                        <span>✓</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-2">减轻学习负担</h3>
-                    <p class="text-center text-gray-600">
-                        错题可稍后统一复习<br>智能推荐复习时间
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
-                    <div class="text-center text-5xl text-green-500 mb-4">
-                        <span>↗</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-2">提高学习效率</h3>
-                    <p class="text-center text-gray-600">
-                        精准定位薄弱环节<br>师生家长共同助力
-                    </p>
-                </div>
-            </div>
-            
-            <div class="mt-12 text-center">
-                <div class="inline-block bg-yellow-100 p-6 rounded-lg border border-yellow-400 text-center">
-                    <p class="text-2xl font-bold text-yellow-800 mb-2">老师、家长、网站三方合力</p>
-                    <p class="text-xl text-yellow-700">共同整理学习资料，为高考复习保驾护航</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="values"></div>
 
     <!-- 赚钱模式 -->
-    <section class="py-16 px-4">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">三大赚钱渠道</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 个人用户 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-4">学生付费</h3>
-                    <p class="text-gray-700 mb-4">每个学生每月付费30元，自动续费模式</p>
-                    <div class="bg-blue-50 p-3 rounded-lg">
-                        <div class="font-bold text-blue-800">预计收入</div>
-                        <div class="text-2xl font-bold text-blue-600">1800万/年</div>
-                        <div class="text-sm text-gray-500">基于5万学生的月付费</div>
-                    </div>
-                </div>
-                <!-- 学校合作 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in border-t-4 border-green-600">
-                    <h3 class="text-xl font-bold mb-4">学校采购</h3>
-                    <p class="text-gray-700 mb-4">学校批量采购，每校每年5-10万合作费</p>
-                    <div class="bg-green-50 p-3 rounded-lg">
-                        <div class="font-bold text-green-800">预计收入</div>
-                        <div class="text-2xl font-bold text-green-600">2250万/年</div>
-                        <div class="text-sm text-gray-500">基于300所学校的年度合作</div>
-                    </div>
-                </div>
-                <!-- 数据变现 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in border-t-4 border-purple-600">
-                    <h3 class="text-xl font-bold mb-4">数据服务</h3>
-                    <p class="text-gray-700 mb-4">教育大数据分析，为教育机构提供决策支持</p>
-                    <div class="bg-purple-50 p-3 rounded-lg">
-                        <div class="font-bold text-purple-800">预计收入</div>
-                        <div class="text-2xl font-bold text-purple-600">800万/年</div>
-                        <div class="text-sm text-gray-500">基于数据分析服务收费</div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <div class="inline-block bg-yellow-100 p-4 rounded-lg border border-yellow-400">
-                    <span class="text-2xl font-bold text-yellow-800">年营收预计：4850万元</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="business"></div>
 
     <!-- 已有成果 -->
-    <section class="bg-gray-100 py-16 px-4">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">已有进展</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">产品已完成</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>学生端APP完成开发上线</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>教师后台管理系统上线</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>OCR识别系统正式运行</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>数据分析引擎投入使用</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">市场进展</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>已签约北京20所重点中学</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>上海地区试点合作启动</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>获得教育部门政策支持</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>学生付费转化率达30%</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="progress"></div>
 
     <!-- 北师大背书 -->
-    <section class="py-16 px-4">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">北师大官方支持</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="w-full md:w-1/3">
-                        <img src="https://via.placeholder.com/300x200?text=北师大校徽" alt="北师大校徽" class="w-full rounded-lg">
-                    </div>
-                    <div class="w-full md:w-2/3">
-                        <h3 class="text-xl font-bold mb-4 text-blue-800">教育领域最权威背书</h3>
-                        <p class="text-lg mb-4">
-                            北京师范大学是教育部直属师范大学，国家"双一流"A类建设高校，在全国教育领域拥有最高话语权和影响力。
-                        </p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-2">•</span>
-                                <span>项目由北师大教育学院教授全程指导</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-2">•</span>
-                                <span>获得北师大教育创新基金支持</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-2">•</span>
-                                <span>能够调动北师大全国教育资源</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="endorsement"></div>
 
     <!-- 投资需求 -->
-    <section class="bg-blue-900 text-white py-16 px-4">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">我们需要什么</h2>
-            <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-4">
-                        <div class="text-4xl font-bold mb-2">500<span class="text-yellow-400">万</span></div>
-                        <div class="text-xl">融资需求</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-4xl font-bold mb-2">15<span class="text-yellow-400">%</span></div>
-                        <div class="text-xl">股权让渡</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-4xl font-bold mb-2">18<span class="text-yellow-400">个月</span></div>
-                        <div class="text-xl">回本周期</div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-lg text-xl inline-block transition">
-                        联系我们
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="investment"></div>
 
     <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>© 2024 智能错题管理系统. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
-    <script>
-        // 添加滚动动画
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        });
-
-        document.querySelectorAll('section > div').forEach((el) => observer.observe(el));
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html> 
