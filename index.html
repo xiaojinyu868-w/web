@@ -7,38 +7,132 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* 初始加载状态指示 */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+            background-color: rgba(243, 244, 246, 0.5);
+            border-radius: 0.5rem;
+        }
+        
+        .loading::after {
+            content: '加载中...';
+            color: #6b7280;
+        }
+        
+        /* 高端商务风格的附加样式 */
+        .business-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .business-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .glass-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        /* 动画增强 */
+        @keyframes shimmer {
+            0% {
+                background-position: -100% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        
+        .animate-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
+    <!-- 备选导航栏 - 如果组件加载失败，这个会显示 -->
+    <div class="bg-blue-900 text-white py-4 hidden" id="fallbackNavbar">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold">智能错题管理系统</div>
+                <div class="space-x-4">
+                    <a href="#features" class="hover:text-yellow-300">产品功能</a>
+                    <a href="#business" class="hover:text-yellow-300">商业模式</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 导航栏 -->
-    <div id="navbar"></div>
+    <div id="navbar" class="loading"></div>
 
     <!-- 主横幅 -->
-    <div id="hero"></div>
+    <div id="hero" class="loading"></div>
 
     <!-- 产品故事 -->
-    <div id="story"></div>
+    <div id="story" class="loading"></div>
 
     <!-- 核心价值 -->
-    <div id="values"></div>
+    <div id="values" class="loading"></div>
 
     <!-- 产品功能 -->
-    <div id="features"></div>
+    <div id="features" class="loading"></div>
 
     <!-- 赚钱模式 -->
-    <div id="business"></div>
+    <div id="business" class="loading"></div>
 
     <!-- 已有成果 -->
-    <div id="progress"></div>
+    <div id="progress" class="loading"></div>
 
     <!-- 北师大背书 -->
-    <div id="endorsement"></div>
+    <div id="endorsement" class="loading"></div>
 
     <!-- 投资需求 -->
-    <div id="investment"></div>
+    <div id="investment" class="loading"></div>
 
     <!-- 页脚 -->
-    <div id="footer"></div>
+    <div id="footer" class="loading"></div>
 
+    <!-- 备选页脚 -->
+    <div class="bg-gray-800 text-white py-6 text-center text-sm hidden" id="fallbackFooter">
+        <div class="container mx-auto px-4">
+            <p>© 2024 智能错题管理系统 - 教育科技创业项目</p>
+        </div>
+    </div>
+
+    <!-- 状态提示 -->
+    <div id="loadingStatus" class="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg px-4 py-2 text-sm text-gray-600 hidden">
+        正在加载组件...
+    </div>
+
+    <!-- 错误提示 -->
+    <div id="errorMessage" class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-blue-100 text-blue-800 px-6 py-3 rounded-lg shadow-lg hidden">
+        <p>使用本地文件打开，部分功能可能受限</p>
+        <p class="text-sm mt-1">建议使用本地服务器运行此网站，如python -m http.server</p>
+    </div>
+
+    <script>
+        // 显示加载状态
+        document.getElementById('loadingStatus').classList.remove('hidden');
+        
+        // 如果5秒后仍未加载完成，显示错误信息并使用备选导航和页脚
+        setTimeout(function() {
+            const loadingContainers = document.querySelectorAll('.loading');
+            if (loadingContainers.length > 0) {
+                document.getElementById('errorMessage').classList.remove('hidden');
+                document.getElementById('fallbackNavbar').classList.remove('hidden');
+                document.getElementById('fallbackFooter').classList.remove('hidden');
+            }
+        }, 5000);
+    </script>
+    
     <script src="js/main.js"></script>
 </body>
 </html> 
