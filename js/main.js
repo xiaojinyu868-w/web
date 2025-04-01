@@ -1,11 +1,24 @@
 // 组件加载逻辑 - 修改为支持本地文件协议
 document.addEventListener('DOMContentLoaded', function() {
     try {
+        // 显示加载状态
+        document.getElementById('loadingStatus').classList.remove('hidden');
+        
         // 尝试加载组件
         loadAllComponents();
         
         // 隐藏加载状态和错误提示
         document.getElementById('loadingStatus').classList.add('hidden');
+        
+        // 如果5秒后仍未加载完成，显示错误信息并使用备选导航和页脚
+        setTimeout(function() {
+            const loadingContainers = document.querySelectorAll('.loading');
+            if (loadingContainers.length > 0) {
+                document.getElementById('errorMessage').classList.remove('hidden');
+                document.getElementById('fallbackNavbar').classList.remove('hidden');
+                document.getElementById('fallbackFooter').classList.remove('hidden');
+            }
+        }, 5000);
         
         // 即使组件无法加载，也清除loading类和指示器
         setTimeout(() => {

@@ -7,54 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <style>
-        /* 初始加载状态指示 */
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 120px;
-            background-color: rgba(243, 244, 246, 0.5);
-            border-radius: 0.5rem;
-        }
-        
-        .loading::after {
-            content: '加载中...';
-            color: #6b7280;
-        }
-        
-        /* 高端商务风格的附加样式 */
-        .business-card {
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .business-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .glass-blur {
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        
-        /* 动画增强 */
-        @keyframes shimmer {
-            0% {
-                background-position: -100% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
-        }
-        
-        .animate-shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
-        }
-    </style>
 </head>
 <body class="bg-gray-50">
     <!-- 备选导航栏 - 如果组件加载失败，这个会显示 -->
@@ -77,10 +29,10 @@
     <div id="hero" class="loading"></div>
 
     <!-- 产品故事 -->
-    <div id="story" class="loading"></div>
+    <!-- <div id="story" class="loading"></div> -->
 
     <!-- 核心价值 -->
-    <div id="values" class="loading"></div>
+    <!-- <div id="values" class="loading"></div> -->
 
     <!-- 产品功能 -->
     <div id="features" class="loading"></div>
@@ -89,7 +41,7 @@
 
 
     <!-- 已有成果 -->
-    <div id="progress" class="loading"></div>
+    <!-- <div id="progress" class="loading"></div> -->
 
     <!-- 北师大背书 -->
     <div id="endorsement" class="loading"></div>
@@ -118,21 +70,6 @@
         <p class="text-sm mt-1">建议使用本地服务器运行此网站，如python -m http.server</p>
     </div>
 
-    <script>
-        // 显示加载状态
-        document.getElementById('loadingStatus').classList.remove('hidden');
-        
-        // 如果5秒后仍未加载完成，显示错误信息并使用备选导航和页脚
-        setTimeout(function() {
-            const loadingContainers = document.querySelectorAll('.loading');
-            if (loadingContainers.length > 0) {
-                document.getElementById('errorMessage').classList.remove('hidden');
-                document.getElementById('fallbackNavbar').classList.remove('hidden');
-                document.getElementById('fallbackFooter').classList.remove('hidden');
-            }
-        }, 5000);
-    </script>
-    
     <script src="js/main.js"></script>
 </body>
 </html> 

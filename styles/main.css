@@ -175,4 +175,51 @@ body {
     content: '⏳';
     margin-left: 8px;
     animation: pulse 1s infinite ease-in-out;
+}
+
+/* 初始加载状态指示 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+    background-color: rgba(243, 244, 246, 0.5);
+    border-radius: 0.5rem;
+}
+
+.loading::after {
+    content: '加载中...';
+    color: #6b7280;
+}
+
+/* 高端商务风格的附加样式 */
+.business-card {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.business-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+.glass-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* 动画增强 */
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
 } 
