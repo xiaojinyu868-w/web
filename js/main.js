@@ -137,6 +137,68 @@ const fallbackContent = {
             </div>
         </div>
     </section>`,
+
+    'ai-features': `<!-- AI功能展示 - 备用内容 -->
+    <div class="py-16 bg-gradient-to-b from-gray-100 to-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="inline-block px-6 py-2 bg-indigo-500/10 rounded-full text-indigo-700 text-sm font-medium mb-5">AI驱动</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 to-blue-800">
+                    深度学习与智能分析
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    基于领先的人工智能技术，让学习和教学更加智能化、个性化
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-indigo-800 mb-6">AI对话解题功能</h3>
+                    <p class="text-lg text-gray-600 mb-8">智能AI助手提供全天候解题支持，解析难题并提供个性化学习建议，让每位学生都能获得专属辅导。</p>
+                    <button id="showChatDemo" class="mt-8 px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition-all flex items-center">
+                        <span>查看AI对话演示</span>
+                    </button>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl font-bold text-blue-800 mb-6">AI学情分析</h3>
+                    <p class="text-lg text-gray-600 mb-8">智能分析学生答题数据，发现知识盲点和学习模式，为教师提供精准教学指导。</p>
+                    <button id="showAnalysisDemo" class="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all flex items-center">
+                        <span>查看学情分析演示</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>`,
+    
+    'imageModalContainer': `<!-- 图片弹窗 - 备用内容 -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+        <div class="relative bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <div class="p-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white flex justify-between items-center">
+                <h3 id="modalTitle" class="text-xl font-bold">AI功能演示</h3>
+                <button id="closeModal" class="text-white hover:text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="p-4 overflow-auto max-h-[calc(90vh-64px)]">
+                <img id="modalImage" src="" alt="AI功能演示" class="w-full h-auto rounded-lg">
+                <div id="modalDescription" class="mt-4 text-gray-600 text-lg"></div>
+                
+                <div id="carouselControls" class="mt-4 hidden">
+                    <div class="carousel-progress w-3/4 max-w-md">
+                        <div id="progressBar" class="carousel-progress-bar"></div>
+                    </div>
+                    
+                    <div class="carousel-controls">
+                        <div data-index="1" class="carousel-dot active"></div>
+                        <div data-index="2" class="carousel-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`,
     
     'business': `<!-- 商业模式 - 备用内容 -->
     <section id="business" class="py-16 bg-blue-900 text-white">
@@ -172,11 +234,13 @@ function loadAllComponents() {
         'story': 'components/story.html',
         'values': 'components/values.html',
         'features': 'components/features.html',
+        'ai-features': 'components/ai-features.html',
         'business': 'components/business.html',
         'progress': 'components/progress.html',
         'endorsement': 'components/endorsement.html',
         'investment': 'components/investment.html',
-        'footer': 'components/footer.html'
+        'footer': 'components/footer.html',
+        'imageModalContainer': 'components/image-modal.html'
     };
 
     // 依次加载所有组件

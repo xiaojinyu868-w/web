@@ -1,0 +1,29 @@
+<!-- 图片弹窗 -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+    <div class="relative bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div class="p-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white flex justify-between items-center">
+            <h3 id="modalTitle" class="text-xl font-bold">AI功能演示</h3>
+            <button id="closeModal" class="text-white hover:text-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="p-4 overflow-auto max-h-[calc(90vh-64px)]">
+            <img id="modalImage" src="" alt="AI功能演示" class="w-full h-auto rounded-lg">
+            <div id="modalDescription" class="mt-4 text-gray-600 text-lg"></div>
+            
+            <!-- 添加轮播进度条和控制点 -->
+            <div id="carouselControls" class="mt-4 hidden">
+                <div class="carousel-progress w-3/4 max-w-md">
+                    <div id="progressBar" class="carousel-progress-bar"></div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <div data-index="1" class="carousel-dot active"></div>
+                    <div data-index="2" class="carousel-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
