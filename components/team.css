@@ -1,0 +1,39 @@
+/* 添加对超小屏幕的支持 */
+@media (min-width: 475px) {
+    .xs\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 添加名校标志闪烁效果 */
+.school-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.school-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 200%;
+    }
+}
+
+/* 高亮名校名称 */
+.school-highlight {
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.1), transparent);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin: 0 -2px;
+    font-weight: 600;
+} 

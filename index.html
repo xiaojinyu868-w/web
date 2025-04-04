@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能错题管理系统 - 教育科技创业项目</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="bg-gray-50">
+    <!-- 备选导航栏 - 如果组件加载失败，这个会显示 -->
+    <div class="bg-blue-900 text-white py-4 hidden" id="fallbackNavbar">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold">智能错题管理系统</div>
+                <div class="space-x-4">
+                    <a href="#features" class="hover:text-yellow-300">产品功能</a>
+                    <a href="#business" class="hover:text-yellow-300">商业模式</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div id="navbar" class="loading"></div>
+
+    <!-- 主横幅 -->
+    <div id="hero" class="loading"></div>
+
+    <!-- 产品故事 -->
+    <!-- <div id="story" class="loading"></div> -->
+
+    <!-- 核心价值 -->
+    <!-- <div id="values" class="loading"></div> -->
+
+    <!-- 产品功能 -->
+    <div id="features" class="loading"></div>
+    
+    <!-- AI功能展示 -->
+    <div id="ai-features" class="loading"></div>
+
+    <!-- 赚钱模式 -->
+
+
+    <!-- 已有成果 -->
+    <!-- <div id="progress" class="loading"></div> -->
+
+    <!-- 北师大背书 -->
+    <div id="endorsement" class="loading"></div>
+
+    <!-- 团队介绍 -->
+    <div id="team" class="loading"></div>
+
+    <!-- 投资需求 -->
+    <div id="investment" class="loading"></div>
+
+    <!-- 页脚 -->
+    <div id="footer" class="loading"></div>
+
+    <!-- 图片弹窗 -->
+    <div id="imageModalContainer" class="loading"></div>
+
+    <!-- 备选页脚 -->
+    <div class="bg-gray-800 text-white py-6 text-center text-sm hidden" id="fallbackFooter">
+        <div class="container mx-auto px-4">
+            <p>© 2024 智能错题管理系统 - 教育科技创业项目</p>
+        </div>
+    </div>
+
+    <!-- 状态提示 -->
+    <div id="loadingStatus" class="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg px-4 py-2 text-sm text-gray-600 hidden">
+        正在加载组件...
+    </div>
+
+    <!-- 错误提示 -->
+    <div id="errorMessage" class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-blue-100 text-blue-800 px-6 py-3 rounded-lg shadow-lg hidden">
+        <p>使用本地文件打开，部分功能可能受限</p>
+        <p class="text-sm mt-1">建议使用本地服务器运行此网站，如python -m http.server</p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-features.js"></script>
+</body>
+</html> 
