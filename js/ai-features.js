@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let autoSwitchTimer = null;
     let progressTimer = null;
     let currentAnalysisImage = 1;
+    let currentRecommendImage = 1;
+    let currentModal = ''; // 用于标记当前打开的是哪个模态框内容
+    let totalImages = 0; // 当前轮播的总图片数量
     
     // 更新进度条
     function updateProgressBar(reset = false) {
@@ -25,6 +28,82 @@ document.addEventListener('DOMContentLoaded', function() {
                 progressBar.style.width = width + '%';
             }
         }, 30); // 3000ms / 100 = 30ms per percent
+    }
+    
+    // 创建轮播指示点
+    function createCarouselDots(count) {
+        const dotsContainer = document.getElementById('carouselDots');
+        if (!dotsContainer) return;
+        
+        // 清空已有的指示点
+        dotsContainer.innerHTML = '';
+        totalImages = count;
+        
+        // 创建新的指示点
+        for (let i = 1; i <= count; i++) {
+            const dot = document.createElement('span');
+            dot.className = i === 1 ? 'carousel-dot active' : 'carousel-dot';
+            dot.setAttribute('data-index', i);
+            
+            // 添加点击事件
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                
+                if (currentModal === 'analysis' && index !== currentAnalysisImage) {
+                    if (index === 1) {
+                        currentAnalysisImage = 2; // 设置为2，这样switchAnalysisImage会切换到图1
+                    } else {
+                        currentAnalysisImage = 1; // 设置为1，这样switchAnalysisImage会切换到图2
+                    }
+                    switchAnalysisImage();
+                } else if (currentModal === 'recommend' && index !== currentRecommendImage) {
+                    jumpToSlide(index);
+                }
+                
+                // 重启自动切换
+                startAutoSwitch();
+            });
+            
+            dotsContainer.appendChild(dot);
+        }
+    }
+    
+    // 跳转到指定轮播图
+    function jumpToSlide(index) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        
+        if (!modal || !modalImage || !modalTitle || !modalDescription) return;
+        
+        modalImage.style.opacity = 0;
+        setTimeout(() => {
+            currentRecommendImage = index;
+            modalImage.src = `images/2.3-${currentRecommendImage}.png`;
+            
+            switch (currentRecommendImage) {
+                case 1:
+                    modalTitle.textContent = 'AI试题推荐 - 知识点分析';
+                    modalDescription.textContent = '系统智能分析学生的知识点掌握情况，识别需要加强的重点和难点内容。';
+                    break;
+                case 2:
+                    modalTitle.textContent = 'AI试题推荐 - 针对性练习';
+                    modalDescription.textContent = '根据学生的薄弱环节，精准推荐相关练习题，帮助巩固知识点。';
+                    break;
+                case 3:
+                    modalTitle.textContent = 'AI试题推荐 - 难度梯度';
+                    modalDescription.textContent = '智能调节题目难度，从易到难循序渐进，确保学习效果最大化。';
+                    break;
+                case 4:
+                    modalTitle.textContent = 'AI试题推荐 - 考前复习';
+                    modalDescription.textContent = '临近考试时，系统会智能聚焦重点内容，提供针对性的复习题目和重点提示。';
+                    break;
+            }
+            
+            modalImage.style.opacity = 1;
+            updateCarouselDots(currentRecommendImage);
+        }, 200);
     }
     
     // 更新轮播指示点
@@ -74,6 +153,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // 切换试题推荐图片函数
+    function switchRecommendImage() {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        
+        if (!modal || !modalImage || !modalTitle || !modalDescription) return;
+        
+        modalImage.style.opacity = 0;
+        setTimeout(() => {
+            if (currentRecommendImage === 4) {
+                currentRecommendImage = 1;
+            } else {
+                currentRecommendImage++;
+            }
+            
+            modalImage.src = `images/2.3-${currentRecommendImage}.png`;
+            
+            switch (currentRecommendImage) {
+                case 1:
+                    modalTitle.textContent = 'AI试题推荐 - 知识点分析';
+                    modalDescription.textContent = '系统智能分析学生的知识点掌握情况，识别需要加强的重点和难点内容。';
+                    break;
+                case 2:
+                    modalTitle.textContent = 'AI试题推荐 - 针对性练习';
+                    modalDescription.textContent = '根据学生的薄弱环节，精准推荐相关练习题，帮助巩固知识点。';
+                    break;
+                case 3:
+                    modalTitle.textContent = 'AI试题推荐 - 难度梯度';
+                    modalDescription.textContent = '智能调节题目难度，从易到难循序渐进，确保学习效果最大化。';
+                    break;
+                case 4:
+                    modalTitle.textContent = 'AI试题推荐 - 考前复习';
+                    modalDescription.textContent = '临近考试时，系统会智能聚焦重点内容，提供针对性的复习题目和重点提示。';
+                    break;
+            }
+            
+            modalImage.style.opacity = 1;
+            updateCarouselDots(currentRecommendImage);
+        }, 200);
+    }
+    
     // 启动自动切换
     function startAutoSwitch() {
         const carouselControls = document.getElementById('carouselControls');
@@ -84,7 +206,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 开始新的切换定时器
         autoSwitchTimer = setInterval(() => {
-            switchAnalysisImage();
+            if (currentModal === 'analysis') {
+                switchAnalysisImage();
+            } else if (currentModal === 'recommend') {
+                switchRecommendImage();
+            }
             // 每次切换后重置进度条并重新启动
             updateProgressBar(true);
             updateProgressBar();
@@ -121,25 +247,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
         const closeModal = document.getElementById('closeModal');
-        const carouselDots = document.querySelectorAll('.carousel-dot');
         
         // 检查关键元素是否存在
         if (!modal || !modalImage) {
             console.error('模态框或图片元素未找到');
             return;
         }
-        
-        // 添加轮播点击事件
-        carouselDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const index = parseInt(this.getAttribute('data-index'));
-                if (index !== currentAnalysisImage) {
-                    switchAnalysisImage();
-                    // 重启自动切换
-                    startAutoSwitch();
-                }
-            });
-        });
         
         // 显示AI对话演示
         const showChatDemo = document.getElementById('showChatDemo');
@@ -148,6 +261,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('点击了AI对话演示按钮');
                 // 停止之前可能运行的定时器
                 stopAutoSwitch();
+                currentModal = 'chat';
+                
+                // 清空轮播指示点容器
+                const dotContainer = document.getElementById('carouselDots');
+                if (dotContainer) {
+                    dotContainer.innerHTML = '';
+                }
                 
                 modalImage.src = 'images/2.2-chat.png';
                 modalTitle.textContent = 'AI对话解题功能';
@@ -164,6 +284,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (showAnalysisDemo) {
             showAnalysisDemo.addEventListener('click', function() {
                 console.log('点击了学情分析演示按钮');
+                currentModal = 'analysis';
+                
                 // 如果弹窗已经打开且正在显示学情分析页面，手动切换一次
                 if (!modal.classList.contains('hidden') && 
                     (modalTitle.textContent.includes('AI学情分析'))) {
@@ -177,6 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     modalTitle.textContent = 'AI学情分析 - 诊断结果';
                     modalDescription.textContent = 'AI系统自动分析学生错题情况，识别出薄弱知识点和常见错误类型，为学生和教师提供精准反馈。';
                     
+                    // 创建轮播点
+                    createCarouselDots(2);
+                    
                     updateCarouselDots(1);
                     modal.classList.remove('hidden');
                     document.body.style.overflow = 'hidden';
@@ -187,6 +312,33 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } else {
             console.error('未找到学情分析演示按钮');
+        }
+        
+        // 显示试题推荐演示
+        const showRecommendDemo = document.getElementById('showRecommendDemo');
+        if (showRecommendDemo) {
+            showRecommendDemo.addEventListener('click', function() {
+                console.log('点击了试题推荐演示按钮');
+                currentModal = 'recommend';
+                
+                // 首次打开弹窗，显示第一张图
+                currentRecommendImage = 1;
+                modalImage.src = 'images/2.3-1.png';
+                modalTitle.textContent = 'AI试题推荐 - 知识点分析';
+                modalDescription.textContent = '系统智能分析学生的知识点掌握情况，识别需要加强的重点和难点内容。';
+                
+                // 创建4个轮播点
+                createCarouselDots(4);
+                
+                updateCarouselDots(1);
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                
+                // 启动自动切换
+                startAutoSwitch();
+            });
+        } else {
+            console.error('未找到试题推荐演示按钮');
         }
         
         // 关闭弹窗
