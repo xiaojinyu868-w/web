@@ -173,6 +173,30 @@ const fallbackContent = {
         </div>
     </div>`,
     
+    'patents': `<!-- 专利展示 - 备用内容 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10">核心专利技术</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-3">知识点展示方法及终端设备</h3>
+                    <p class="text-gray-600 mb-2">申请公布号: CN 117171408 A</p>
+                    <p>建立知识点层级架构，实现多知识点关联分析</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-3">错题集生成方法及设备</h3>
+                    <p class="text-gray-600 mb-2">申请公布号: CN 117112733 A</p>
+                    <p>自动生成错题集，提高学习效率</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-3">题目索引创建方法</h3>
+                    <p class="text-gray-600 mb-2">申请公布号: CN 119202122 A</p>
+                    <p>创建题目索引，便于快速精准查找特定题目</p>
+                </div>
+            </div>
+        </div>
+    </section>`,
+    
     'imageModalContainer': `<!-- 图片弹窗 - 备用内容 -->
     <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
         <div class="relative bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
@@ -237,6 +261,7 @@ function loadAllComponents() {
         'values': 'components/values.html',
         'features': 'components/features.html',
         'ai-features': 'components/ai-features.html',
+        'patents': 'components/patents.html',
         'business': 'components/business.html',
         'progress': 'components/progress.html',
         'endorsement': 'components/endorsement.html',
