@@ -1,5 +1,26 @@
+// 预加载图片函数
+function preloadImages() {
+    const imagesToPreload = [
+        'images/2.2-chat.webp',
+        'images/2.2-1.webp',
+        'images/2.2-2.webp',
+        'images/2.3-1.webp',
+        'images/2.3-2.webp',
+        'images/2.3-3.webp',
+        'images/2.3-4.webp'
+    ];
+
+    imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
 // 图片弹窗功能
 document.addEventListener('DOMContentLoaded', function() {
+    // 预加载图片
+    preloadImages();
+    
     // 初始化全局变量和函数
     let autoSwitchTimer = null;
     let progressTimer = null;
