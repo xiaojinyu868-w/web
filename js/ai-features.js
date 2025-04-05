@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalImage.style.opacity = 0;
         setTimeout(() => {
             currentRecommendImage = index;
-            modalImage.src = `images/2.3-${currentRecommendImage}.png`;
+            modalImage.src = `images/2.3-${currentRecommendImage}.webp`;
             
             switch (currentRecommendImage) {
                 case 1:
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentAnalysisImage === 1) {
             modalImage.style.opacity = 0;
             setTimeout(() => {
-                modalImage.src = 'images/2.2-2.png';
+                modalImage.src = 'images/2.2-2.webp';
                 modalTitle.textContent = 'AI学情分析 - 改进建议';
                 modalDescription.textContent = '基于学生的错题数据，系统生成个性化的学习改进建议，帮助学生有针对性地提升薄弱环节。';
                 modalImage.style.opacity = 1;
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             modalImage.style.opacity = 0;
             setTimeout(() => {
-                modalImage.src = 'images/2.2-1.png';
+                modalImage.src = 'images/2.2-1.webp';
                 modalTitle.textContent = 'AI学情分析 - 诊断结果';
                 modalDescription.textContent = 'AI系统自动分析学生错题情况，识别出薄弱知识点和常见错误类型，为学生和教师提供精准反馈。';
                 modalImage.style.opacity = 1;
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentRecommendImage++;
             }
             
-            modalImage.src = `images/2.3-${currentRecommendImage}.png`;
+            modalImage.src = `images/2.3-${currentRecommendImage}.webp`;
             
             switch (currentRecommendImage) {
                 case 1:
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     dotContainer.innerHTML = '';
                 }
                 
-                modalImage.src = 'images/2.2-chat.png';
+                modalImage.src = 'images/2.2-chat.webp';
                 modalTitle.textContent = 'AI对话解题功能';
                 modalDescription.textContent = '通过自然语言交互，智能AI助手能够针对学生的具体问题提供个性化解答，帮助学生理解概念和解决难题。';
                 modal.classList.remove('hidden');
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     // 首次打开弹窗，显示第一张图
                     currentAnalysisImage = 1;
-                    modalImage.src = 'images/2.2-1.png';
+                    modalImage.src = 'images/2.2-1.webp';
                     modalTitle.textContent = 'AI学情分析 - 诊断结果';
                     modalDescription.textContent = 'AI系统自动分析学生错题情况，识别出薄弱知识点和常见错误类型，为学生和教师提供精准反馈。';
                     
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // 首次打开弹窗，显示第一张图
                 currentRecommendImage = 1;
-                modalImage.src = 'images/2.3-1.png';
+                modalImage.src = 'images/2.3-1.webp';
                 modalTitle.textContent = '试题分析 - 教师端错题管理';
                 modalDescription.textContent = '直观整合展示错题，快速导入、标记日常试题，针对共性问题进行回顾、理解并导出巩固。';
                 
