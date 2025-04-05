@@ -49,7 +49,9 @@ function loadComponent(id, path) {
 
     try {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', path, true);
+        // 添加时间戳参数防止缓存
+        const timestamp = new Date().getTime();
+        xhr.open('GET', `${path}?v=${timestamp}`, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200 || xhr.status === 0) { // 0是本地文件成功的状态码
@@ -238,6 +240,7 @@ function loadAllComponents() {
         'business': 'components/business.html',
         'progress': 'components/progress.html',
         'endorsement': 'components/endorsement.html',
+        'team': 'components/team.html',
         'investment': 'components/investment.html',
         'footer': 'components/footer.html',
         'imageModalContainer': 'components/image-modal.html'
