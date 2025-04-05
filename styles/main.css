@@ -120,6 +120,80 @@ body {
     }
 }
 
+/* 添加更细致的移动端响应式样式 */
+@media (max-width: 640px) {
+    /* 主标题调整 */
+    h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    /* 正文文本调整 */
+    p, .text-lg {
+        font-size: 1rem !important;
+    }
+    
+    .text-xl, .text-2xl {
+        font-size: 1.125rem !important;
+    }
+    
+    /* 按钮文本 */
+    .text-lg.flex {
+        font-size: 0.875rem !important;
+    }
+    
+    /* 按钮内边距调整 */
+    a.px-8 {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+    
+    a.py-4 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    /* 卡片间距调整 */
+    .p-8 {
+        padding: 1.25rem !important;
+    }
+    
+    .gap-8 {
+        gap: 1rem !important;
+    }
+    
+    .mb-6 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .mb-12 {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .mb-16 {
+        margin-bottom: 2rem !important;
+    }
+    
+    /* 图标尺寸调整 */
+    .w-14, .h-14 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+    
+    .h-8, .w-8 {
+        height: 1.25rem !important;
+        width: 1.25rem !important;
+    }
+}
+
 .-z-1 {
     z-index: -1;
 }
