@@ -84,20 +84,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             switch (currentRecommendImage) {
                 case 1:
-                    modalTitle.textContent = 'AI试题推荐 - 知识点分析';
-                    modalDescription.textContent = '系统智能分析学生的知识点掌握情况，识别需要加强的重点和难点内容。';
+                    modalTitle.textContent = '试题分析 - 教师端错题管理';
+                    modalDescription.textContent = '直观整合展示错题，快速导入、标记日常试题，针对共性问题进行回顾、理解并导出巩固。';
                     break;
                 case 2:
-                    modalTitle.textContent = 'AI试题推荐 - 针对性练习';
-                    modalDescription.textContent = '根据学生的薄弱环节，精准推荐相关练习题，帮助巩固知识点。';
+                    modalTitle.textContent = '试题分析 - 错题热力图';
+                    modalDescription.textContent = '通过热力图可视化展示错题分布密度，帮助教师迅速识别学生集中出错的知识点，优化教学策略。';
                     break;
                 case 3:
-                    modalTitle.textContent = 'AI试题推荐 - 难度梯度';
-                    modalDescription.textContent = '智能调节题目难度，从易到难循序渐进，确保学习效果最大化。';
+                    modalTitle.textContent = '试题分析 - 错题本实拍';
+                    modalDescription.textContent = '系统自动生成的错题本清晰归纳学生易错试题，提供详细解析和知识点关联，便于高效复习。';
                     break;
                 case 4:
-                    modalTitle.textContent = 'AI试题推荐 - 考前复习';
-                    modalDescription.textContent = '临近考试时，系统会智能聚焦重点内容，提供针对性的复习题目和重点提示。';
+                    modalTitle.textContent = '试题分析 - 查漏补缺表';
+                    modalDescription.textContent = '智能生成个性化查漏补缺报告，精准定位知识薄弱环节，并提供有针对性的练习建议。';
                     break;
             }
             
@@ -174,20 +174,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             switch (currentRecommendImage) {
                 case 1:
-                    modalTitle.textContent = 'AI试题推荐 - 知识点分析';
-                    modalDescription.textContent = '系统智能分析学生的知识点掌握情况，识别需要加强的重点和难点内容。';
+                    modalTitle.textContent = '试题分析 - 教师端错题管理';
+                    modalDescription.textContent = '直观整合展示错题，快速导入、标记日常试题，针对共性问题进行回顾、理解并导出巩固。';
                     break;
                 case 2:
-                    modalTitle.textContent = 'AI试题推荐 - 针对性练习';
-                    modalDescription.textContent = '根据学生的薄弱环节，精准推荐相关练习题，帮助巩固知识点。';
+                    modalTitle.textContent = '试题分析 - 错题热力图';
+                    modalDescription.textContent = '通过热力图可视化展示错题分布密度，帮助教师迅速识别学生集中出错的知识点，优化教学策略。';
                     break;
                 case 3:
-                    modalTitle.textContent = 'AI试题推荐 - 难度梯度';
-                    modalDescription.textContent = '智能调节题目难度，从易到难循序渐进，确保学习效果最大化。';
+                    modalTitle.textContent = '试题分析 - 错题本实拍';
+                    modalDescription.textContent = '系统自动生成的错题本清晰归纳学生易错试题，提供详细解析和知识点关联，便于高效复习。';
                     break;
                 case 4:
-                    modalTitle.textContent = 'AI试题推荐 - 考前复习';
-                    modalDescription.textContent = '临近考试时，系统会智能聚焦重点内容，提供针对性的复习题目和重点提示。';
+                    modalTitle.textContent = '试题分析 - 查漏补缺表';
+                    modalDescription.textContent = '智能生成个性化查漏补缺报告，精准定位知识薄弱环节，并提供有针对性的练习建议。';
                     break;
             }
             
@@ -324,8 +324,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 首次打开弹窗，显示第一张图
                 currentRecommendImage = 1;
                 modalImage.src = 'images/2.3-1.png';
-                modalTitle.textContent = 'AI试题推荐 - 知识点分析';
-                modalDescription.textContent = '系统智能分析学生的知识点掌握情况，识别需要加强的重点和难点内容。';
+                modalTitle.textContent = '试题分析 - 教师端错题管理';
+                modalDescription.textContent = '直观整合展示错题，快速导入、标记日常试题，针对共性问题进行回顾、理解并导出巩固。';
                 
                 // 创建4个轮播点
                 createCarouselDots(4);
